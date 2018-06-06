@@ -15,8 +15,7 @@ class AuthLanding extends React.Component {
     super(props);
     autoBind.call(this, AuthLanding);
   }
-  // MEMBER FUNCTIONS (METHODS) => Method new term for the same
-  //----------
+
   handleLogin(user) {
     return this.props.pDoLogin(user)
       .then(() => {
@@ -32,9 +31,6 @@ class AuthLanding extends React.Component {
       })
       .catch(console.error);
   }
-
-  //---------
-  // LIFE-CYCLE HOOKS
 
   render() {
     const rootJSX = <div>
@@ -80,7 +76,6 @@ const mapStateToProps = state => ({
   token: state.token,
 });
 
-// we need to login and singup
 const mapDispatchToProps = dispatch => ({
   pDoSignup: user => dispatch(authActions.signupRequest(user)),
   pDoLogin: user => dispatch(authActions.loginRequest(user)),

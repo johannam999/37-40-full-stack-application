@@ -2,9 +2,6 @@ import superagent from 'superagent';
 import * as routes from '../routes';
 
 
-// -----
-// sync actions
-//-----
 export const setTokenAction = token => ({ 
   type: 'TOKEN_SET', 
   payload: token,
@@ -14,9 +11,7 @@ export const removeTokenAction = () => ({
   type: 'TOKEN_REMOVE', 
 });
 
-//----------------
-// ASYNC ACTIONS
-//------------
+
 export const signupRequest = user => (store) => {
   return superagent.post(`${API_URL}${routes.SIGNUP_ROUTE}`)
     .send(user)
