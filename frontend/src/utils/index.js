@@ -7,15 +7,15 @@ export default function autoBind(classComponent) {
   });
 }
 
-export const validateParcel = (payload) => {
-  if (!payload._id) {
-    throw new Error('VALIDATION ERROR: parcel must have an id');
-  }
+// export const validateParcel = (payload) => {
+//   if (!payload._id) {
+//     throw new Error('VALIDATION ERROR: parcel must have an id');
+//   }
 
-  if (!payload.firstName) {
-    throw new Error('VALIDATION ERROR: parcel must have a title');
-  }
-  if (!payload.lastName) {
-    throw new Error('VALIDATION ERROR: parcel must have a title');
-  }
-};
+//   if (!payload.firstName) {
+//     throw new Error('VALIDATION ERROR: parcel must have a title');
+//   }
+//   if (!payload.lastName) {
+//     throw new Error('VALIDATION ERROR: parcel must have a title');
+//   }
+// };

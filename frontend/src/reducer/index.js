@@ -1,4 +1,4 @@
 import { combineReducers } from 'redux';
-import parcels from './parcels';
+import token from './token';
 
-export default combineReducers({ parcels });
+export default combineReducers({ token });
