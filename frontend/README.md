@@ -4,7 +4,7 @@
 
 ## Overview
 
-This app lets the user input data to create a parcel. It has a dashboard where the form is displaying for the user to add information. The user can add following information: firstName, lastName, address that gets to create a parcel. Then each parcel is rendered to the parcel list and displayed. User can also use option to update and remove each of them with a click. We are using a local host connection for this app. All the data created from the user input gets stored on mongodb.
+This app lets the user input data to create a user account. It has a dashboard where the form for user data is displaying. The user can add following information: name, email, password that gets to create an account. The login is necessary to access the dashboard and the rest of the features. All the data added from the user input gets stored on mongodb and the password is stored as a token for the safety.
 
 ## Getting Started
 
@@ -12,26 +12,26 @@ This app lets the user input data to create a parcel. It has a dashboard where t
 2. Start with building webpack.common.js and webpack.dev.js files and utils to pre-define functions bind.
 3. Create .env files both for front-end and back-end.
 4. Create reducer, store and action files. 
-5. Create ui state that takes firstName, lastName and address. The Id gets generated automatically by mongodb.
-6. Reducer should contain  the following:
-  * `PARCEL_CREATE`
-  * `PARCEL_UPDATE`
-  * `PARCEL_DELETE`
-  
-7. Actions file needs to create actions for all the interactions added to reducer.
-8. Connect some components with action file. 
-9. Create routes inside app file.
-10. Make sure Dashboard displays on the'/' route and connects to map state and dispatch methods to props.
-11. Add ParcelForm to render() function.
-12. Add reporter and thunk middleware to your redux store
-13. Use onComplete function to invoke when the form gets submitted.
-14. Render all the components into HTML.
-15. Change scss file accordingly.
-16. Add local storage with redux-session.js.
-17. Add actions and error logs in redux-reporter.js.
-18. Run: mongo, npm run start, npm run watch to test the app. The address line must be at least 10 characters long.
+5. Reducer should contain token actions:
+  * `TOKEN_SET`
+  * `TOKEN_REMOVE`
+6. Create Dashboard component that renders basic view of the page after login
+7. Create UI state that takes name, email and password to authenticate.
+8. Actions file - auth.js needs to create actions for login and signup.
+9. Create auth-redirect.js file to store conditions on how to access some routes. Dashboard will be accessed only with a login otherwise the user will be displayed ROOT_ROUTE which is landing page.
+  * Do I need to connect ot the store?
+  - This component needs access to the token.
+  * Do I need props?
+  - Yes we need the location?
+  * Do I need any member functions/methods or life-cycle hooks?
+  - Nothing besides render.
+  * What do i need to render?  
 
-
+10. Create Landing page and the view options for singup or login.
+11. Add reporter and thunk middleware to your redux store
+12. Render all the components into HTML.
+13. Change scss file accordingly.
+14. Run: run dbon, npm run start, npm run watch to test the app. The address line must be at least 10 characters long.
 
 
 ## Architecture
