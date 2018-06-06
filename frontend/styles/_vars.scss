@@ -1,0 +1,45 @@
+$background-color: #949090;
+$font-color: rgb(63, 17, 72); 
+$error: #ff0000;
+$modal-color: rgba(0,0,0,0.4);
+$modal-background: #FFF;
+$button-margin: 15px;
+html, body {
+  background: $background-color;
+}
+
+p,h1,h2,ul {
+  color: $font-color;
+}
+button {
+  background-color:rgb(223, 149, 202);
+  padding: 5px;
+  border-radius: 3px;
+  margin: $button-margin;
+}
+.error {
+  border-color:$error;
+}
+.title {
+  color: black;
+  font-size: 20px;
+}
+input {
+  padding: 8px;
+  margin-right: 7px;
+  border-radius: 4px;
+}
+.updateColor {
+  background-color: rgb(232, 197, 222);
+  padding: 5px;
+  border-radius: 3px;
+}
+.divColor {
+  background-color: rgb(224, 230, 135);
+  width:70%;
+  padding-left: 10%;
+  padding-bottom: 10%;
+}
+.redExpense {
+  border-color: #ff0000;
+}
