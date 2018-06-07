@@ -28,8 +28,11 @@ This app lets the user input data to create a user account. It has a dashboard w
   * What do i need to render?  
 
 10. Create Landing page and the view options for singup or login.
-11. Add reporter and thunk middleware to your redux store
+11. Add reporter and thunk middleware to your redux store.
 12. Render all the components into HTML.
+13. Add logout route in token.js, header.js and auth.js and routes.js.
+This will give a logout functionality and an option to store cookies locally.
+14. Link Header component to app.js.
 13. Change scss file accordingly.
 14. Run: run dbon, npm run start, npm run watch to test the app. The address line must be at least 10 characters long.
 
