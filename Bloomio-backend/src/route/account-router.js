@@ -3,6 +3,7 @@
 import bodyParser from 'body-parser';
 import HttpError from 'http-errors';
 import { Router } from 'express';
+import { TOKEN_COOKIE_KEY } from './../../../frontend/src/constants';
 
 import Account from '../model/account';
 import basicAuthMiddleware from '../lib/basic-auth-middleware';
@@ -23,8 +24,10 @@ accountRouter.post('/signup', jsonParser, (request, response, next) => {
       return account.createToken();
     })
     .then((token) => {
+      response.cookie('TOKEN_COOKIE_KEY', token, { maxAge: 900000 });
+    
       logger.log('logger.INFO', 'AUTH - returning a 200 code and a token.');
-      return response.json({ token });
+      response.json({ token });
     })
     .catch(next);
 });
@@ -35,8 +38,9 @@ accountRouter.get('/login', basicAuthMiddleware, (request, response, next) => {
   }
   return request.account.createToken()
     .then((token) => {
+      response.cookie(TOKEN_COOKIE_KEY, token, { maxAge: 900000 });
       logger.log(logger.INFO, 'LOGIN - responding with a 200 status and a token.');
-      return response.json({ token });
+      response.json({ token });
     })
     .catch(next);
 });

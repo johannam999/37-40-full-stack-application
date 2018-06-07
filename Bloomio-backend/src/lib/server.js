@@ -1,6 +1,7 @@
 'use strict';
 
 import express from 'express';
+import cors from 'cors';
 import mongoose from 'mongoose';
 import logger from './logger';
 import errorMiddleware from './error-middleware';
@@ -9,9 +10,13 @@ import profileRouter from '../route/profile-router';
 import plantRouter from '../route/plant-router';
 import plantResourceRouter from '../route/plant-resource-router';
 
+
 const app = express();
 let server = null;
-
+app.use(cors({ 
+  origin: 'http://localhost:8080',
+  credentials: true, 
+}));
 // routes will be app.use'd here
 app.use(accountRouter);
 app.use(profileRouter);
@@ -29,7 +34,7 @@ const startServer = () => {
   return mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
       server = app.listen(process.env.PORT, () => {
-        logger.log(logger.INFO, `Server is listening on port ${process.env.PORT}`);
+        logger.log(logger.INFO, `Server is listening on pooort ${process.env.PORT}`);
       });
     });
 };
