@@ -16,8 +16,8 @@ const emptyState = {
   passwordDirty: false,
   passwordError: 'password is required',
 };
-const MIN_NAME_LENGTH = 6;
-const MIN_PASSWORD_SIZE = 6;
+const MIN_NAME_LENGTH = 3;
+
 
 class AuthForm extends React.Component {
   constructor(props) {
@@ -42,8 +42,8 @@ class AuthForm extends React.Component {
         }
         return null;
       case 'password':
-        if (value.length < MIN_PASSWORD_SIZE && !validator.isAlphanumeric(value)) {
-          return `your password must  be at least ${MIN_PASSWORD_SIZE} characters long`;
+        if (!(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).*$/.test(value))) {
+          return 'Your password must contain at least single letter, number, capital letter and a special character';
         }
         return null;
       default:
