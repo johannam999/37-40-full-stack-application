@@ -23,13 +23,12 @@ const profileSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  googleID: {
-    type: String,
-    unique: true,
-  },
+  // googleID: {
+  //   type: String,
+  //   unique: true,
+  // },
   account: {
     type: mongoose.Schema.ObjectId,
-    required: true,
     unique: true,
   },
 }, {
