@@ -29,7 +29,7 @@ const updatePlantRequest = plant => (store) => {
   // const { token } = store.getState(); 
   const token = localStorage.getItem('token');
   return superagent.put(`${API_URL}${routes.PLANT_ROUTE}/${plant._id}`)
-    .set('Authorization', `Bearer ${token}`) // http header string
+    .set('Authorization', `Bearer ${token}`) 
     .set('Content-Type', 'application/json') // sending json most of the time
     .send(plant)
     .then((response) => {
