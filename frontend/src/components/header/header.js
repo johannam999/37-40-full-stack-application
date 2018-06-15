@@ -35,9 +35,7 @@ class Header extends React.Component {
     );
   }
 }
-// in front end check if the token exists but we should send request with 
-// a scrypt to server to verify the password
-// building new component to show sth else when logged in and when logged out
+
 Header.propTypes = {
   loggedIn: PropTypes.bool,
   doLogout: PropTypes.func,
@@ -45,8 +43,6 @@ Header.propTypes = {
 
 const mapStateToProps = state => ({
   loggedIn: !!state.token, 
-  // this is giving truthy/falsy value (boolean) for any expression in this case truthy, 
-  // its the same as if exists but this is common
 });
 
 const mapDispatchToProps = dispatch => ({

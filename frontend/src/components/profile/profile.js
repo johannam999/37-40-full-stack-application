@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux'; // its a big object and we only want to extact and import small part connect
+import { connect } from 'react-redux'; 
 import PropTypes from 'prop-types';
 
 import * as clientProfileActions from '../../actions/client-profile';
@@ -15,7 +15,7 @@ class Profile extends React.Component {
     super(props);
     this.state = {
       editing: false,
-    }; // this is UI state bc its not coming directly from the store
+    };
     autoBind.call(this, Profile);
   }
 
@@ -24,7 +24,6 @@ class Profile extends React.Component {
   handleCreate(profile) {
     this.props.profileCreate(profile)
       .then(() => {
-        // the profile has been created we inform/interact with the user
         this.props.history.push(routes.DASHBOARD_ROUTE);
         // add .catch
       });
@@ -79,7 +78,7 @@ Profile.propTypes = {
   profileFetch: PropTypes.object,
   profileUpdate: PropTypes.func,
   profileCreate: PropTypes.func,
-  history: PropTypes.object, // this is a class object
+  history: PropTypes.object, 
 };
 
 const mapStateToProps = state => ({
@@ -92,4 +91,4 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile); 
-// connecting to the store,  since connect returns a function, we send it with profile component
+
