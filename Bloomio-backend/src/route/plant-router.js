@@ -35,6 +35,14 @@ plantRouter.post('/plants', bearerAuthMiddleware, jsonParser, (request, response
     .catch(next);
 });
 
+plantRouter.get('/plants/me', bearerAuthMiddleware, (request, response, next) => {
+  return Plant.findById(request.params._id)
+    .then((plant) => {
+      logger.log(logger.INFO, 'GET - responding with a 200 status code');
+      return response.json(plant);
+    })
+    .catch(next);
+});
 plantRouter.get('/plants/:id', bearerAuthMiddleware, (request, response, next) => {
   return Plant.findById(request.params.id)
     .then((plant) => {

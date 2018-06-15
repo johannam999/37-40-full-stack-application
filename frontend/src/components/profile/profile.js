@@ -57,7 +57,7 @@ class Profile extends React.Component {
       <div>
         <p>{profile.firstName}</p>
         <p>{profile.location}</p>
-        <button onClick={() => this.setState({ editing: false })}>Edit</button>
+        <button onClick={() => this.setState({ editing: true })}>Edit</button>
       </div>;
       JSXProfile = 
       <div>

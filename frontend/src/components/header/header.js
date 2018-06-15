@@ -19,6 +19,7 @@ class Header extends React.Component {
     <ul>
       <li><Link to={routes.DASHBOARD_ROUTE}>Dashboard</Link></li>
       <li><Link to={routes.PROFILE_ROUTE}>Profile</Link></li>
+      <li><Link to={routes.PLANT_ROUTE}>Plants</Link></li>
     </ul>;
 
     return (

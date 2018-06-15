@@ -7,7 +7,7 @@ import * as authActions from '../../actions/auth';
 
 import autoBind from '../../utils';
 import AuthForm from '../auth-form/auth-form';
-
+import * as clientProfileActions from '../../actions/client-profile';
 import * as routes from '../../routes';
 
 class AuthLanding extends React.Component {
@@ -19,6 +19,7 @@ class AuthLanding extends React.Component {
   handleLogin(user) {
     return this.props.pDoLogin(user)
       .then(() => {
+        this.props.pFetchProfile();
         this.props.history.push(routes.DASHBOARD_ROUTE);
       })
       .catch(console.error);
@@ -36,7 +37,7 @@ class AuthLanding extends React.Component {
     const rootJSX = <div>
       <h2>WELCOME</h2>
       <Link className='loginLink' to='/signup'> Sign up to the app</Link>
-      <Link  to='/login'>Login to the app</Link>
+      <Link to='/login'>Login to the app</Link>
     </div>;
 
     const signUpJSX = <div>
@@ -79,6 +80,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   pDoSignup: user => dispatch(authActions.signupRequest(user)),
   pDoLogin: user => dispatch(authActions.loginRequest(user)),
+  pFetchProfile: () => dispatch(clientProfileActions.fetchRequest()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthLanding);
