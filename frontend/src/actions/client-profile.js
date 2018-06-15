@@ -47,4 +47,3 @@ const fetchRequest = () => (store) => {
 };
 export { setProfile, createRequest, updateRequest, fetchRequest };
 
-// token => unique(identifies the user), string, long

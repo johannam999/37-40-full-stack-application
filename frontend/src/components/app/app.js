@@ -7,10 +7,11 @@ import { connect } from 'react-redux';
 import AuthRedirect from '../auth-redirect/auth-redirect';
 import Dashboard from '../dashboard/dashboard';
 import Profile from '../profile/profile';
+import Plant from '../plant/plant';
 import Header from '../header/header';
 import AuthLanding from '../auth-landing/auth-landing';
 import * as clientProfileActions from '../../actions/client-profile';
-
+import * as plantActions from '../../actions/plant-profile';
 
 class App extends React.Component {
   componentDidMount() {
@@ -32,7 +33,7 @@ class App extends React.Component {
             <Route exact path='/login' component={AuthLanding}/>
             <Route exact path='/dashboard' component={Dashboard}/>
             <Route exact path='/profile' component={Profile}/>
-                      
+            <Route exact path='/plants' component={Plant}/>                      
           </div>
         </BrowserRouter>
       </div>
@@ -42,6 +43,7 @@ class App extends React.Component {
 App.propTypes = {
   loggedIn: PropTypes.bool,
   pFetchClientProfile: PropTypes.func,
+  pFetchPlant: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -50,6 +52,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   pFetchClientProfile: () => dispatch(clientProfileActions.fetchRequest()),
+  // pFetchPlant: () => dispatch(plantActions.fetchPlantRequest()),
 });
 
 

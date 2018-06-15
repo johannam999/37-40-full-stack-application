@@ -41,11 +41,10 @@ const fetchPlantRequest = () => (store) => {
   const { token } = store.getState(); 
 
   return superagent.get(`${API_URL}/plants`)
-    .set('Authorization', `Bearer ${token}`) // http header string
+    .set('Authorization', `Bearer ${token}`) 
     .then((response) => {
       return store.dispatch(setPlant(response.body));
     });
 };
 export { setPlant, createPlantRequest, updatePlantRequest, fetchPlantRequest };
 
-// token => unique(identifies the user), string, long
