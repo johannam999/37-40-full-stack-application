@@ -35,25 +35,25 @@ plantRouter.post('/plants', bearerAuthMiddleware, jsonParser, (request, response
     .catch(next);
 });
 
-plantRouter.get('/plants/me', bearerAuthMiddleware, (request, response, next) => {
-  return Plant.findById(request.params._id)
-    .then((plant) => {
-      logger.log(logger.INFO, 'GET - responding with a 200 status code');
-      return response.json(plant);
-    })
-    .catch(next);
-});
-plantRouter.get('/plants/:id', bearerAuthMiddleware, (request, response, next) => {
-  return Plant.findById(request.params.id)
-    .then((plant) => {
-      if (!plant) {
-        return next(new HttpError(404, 'plant not found.'));
-      }
-      logger.log(logger.INFO, 'GET - responding with a 200 status code.');
-      logger.log(logger.INFO, `GET - ${JSON.stringify(plant)}`);
-      return response.json(plant);
-    })
-    .catch(next);
+
+plantRouter.get('/plants/:id?', bearerAuthMiddleware, (request, response, next) => {
+  if (request.params._id) {
+    return Plant.findById(request.params.id)
+      .then((plant) => {
+        if (!plant) {
+          return next(new HttpError(404, 'plant not found.'));
+        }
+        logger.log(logger.INFO, 'GET - responding with a 200 status code.');
+        logger.log(logger.INFO, `GET - ${JSON.stringify(plant)}`);
+        return response.json(plant);
+      })
+      .catch(next);
+  }
+  return Plant.find()
+    .then((plants) => {
+      console.log(plants);
+      return response.json(plants);
+    });
 });
 
 plantRouter.put('/plants/:id', bearerAuthMiddleware, jsonParser, (request, response, next) => {

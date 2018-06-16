@@ -20,9 +20,11 @@ export default (state = null, action) => {
   switch (type) {
     case 'PLANT_SET':
       validatePlant(payload);
-      return [payload, ...state];
+      return payload;
     case 'TOKEN_REMOVE': 
-      return null; 
+      return null;
+    case 'FETCH_ALL_PLANTS':
+      return [...payload]; 
     default:
       return state;
   }

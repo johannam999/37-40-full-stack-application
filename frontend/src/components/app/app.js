@@ -11,7 +11,7 @@ import Plant from '../plant/plant';
 import Header from '../header/header';
 import AuthLanding from '../auth-landing/auth-landing';
 import * as clientProfileActions from '../../actions/client-profile';
-import * as plantActions from '../../actions/plant-profile';
+// import * as plantActions from '../../actions/plant-profile';
 
 class App extends React.Component {
   componentDidMount() {
@@ -43,7 +43,7 @@ class App extends React.Component {
 App.propTypes = {
   loggedIn: PropTypes.bool,
   pFetchClientProfile: PropTypes.func,
-  pFetchPlant: PropTypes.func,
+
 };
 
 const mapStateToProps = state => ({
@@ -52,7 +52,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   pFetchClientProfile: () => dispatch(clientProfileActions.fetchRequest()),
-  // pFetchPlant: () => dispatch(plantActions.fetchPlantRequest()),
 });
 
 

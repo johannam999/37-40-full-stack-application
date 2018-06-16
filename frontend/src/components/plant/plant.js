@@ -37,14 +37,14 @@ class Plant extends React.Component {
   // ----------------------
   render() {
     const {
-      plant, profile,
+      plant,
     } = this.props;
 
     let JSXPlantEditing = null;
     let JSXPlantDisplay = null;
     let JSXPlant = null;
 
-    if (profile && plant) {
+    if (plant) {
       JSXPlantEditing =
       <div>
         <PlantForm plant={plant} onComplete={this.handleUpdate}/>
@@ -54,8 +54,8 @@ class Plant extends React.Component {
 
       JSXPlantDisplay = 
       <div>
-        <p>{profile.commonName}</p>
-        <p>{profile.placement}</p>
+        <p>{plant.commonName}</p>
+        <p>{plant.placement}</p>
         <button onClick={() => this.setState({ editing: true })}>Edit</button>
       </div>;
 
@@ -77,21 +77,18 @@ class Plant extends React.Component {
 }
 
 Plant.propTypes = {
-  pFetchPlant: PropTypes.object,
+  pFetchPlant: PropTypes.func,
   plantUpdate: PropTypes.func,
   plantCreate: PropTypes.func,
   history: PropTypes.object, 
 };
 
-const mapStateToProps = state => ({
-  plant: state.plantProfile,
-});
 
 const mapDispatchToProps = dispatch => ({
   plantCreate: plant => dispatch(plantActions.createPlantRequest(plant)),
   plantUpdate: plant => dispatch(plantActions.updatePlantRequest(plant)), 
-  // pFetchPlant: () => dispatch(plantActions.fetchPlantRequest()), 
+  pFetchPlant: () => dispatch(plantActions.fetchPlantRequest()), 
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Plant); 
+export default connect(null, mapDispatchToProps)(Plant); 
 

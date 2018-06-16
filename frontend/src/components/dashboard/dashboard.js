@@ -13,25 +13,28 @@ class Dashboard extends React.Component {
     const {
       plants,
     } = this.props;
+    console.log('PLANTS', plants);
     return (
       <div className='dashboard'>
       <h2>Welcome</h2>
       <h2> This is your personal dashboard</h2>
       <PlantForm onComplete={this.props.doCreatePlant}/>
       {
-        plants.map((plant) => {
+       plants ? plants.map((plant) => {
           return (
+            // <Plant this/>
             <div key={plant._id}>
             <h3>{plant.commonName}</h3>
             <h3>{plant.placement}</h3>
-            {/* <ParcelForm 
-              parcel={parcel}
-              onComplete={parcelUpdate}
-              buttonText='Update parcel'/>
-            <button onClick={() => parcelDelete(parcel)}>delete</button> */}
+            {/* <PlantForm 
+              plant={plant}
+              onComplete={plantUpdate}
+              buttonText='Update plant'/>
+            <button onClick={() => plantDelete(plant)}>delete</button> */}
             </div>
           );
         })
+        : undefined
       }
       </div>
     );
@@ -39,13 +42,17 @@ class Dashboard extends React.Component {
 }
 Dashboard.propTypes = {
   doCreatePlant: PropTypes.func,
-  pFetchPlant: PropTypes.object,
+  pFetchPlant: PropTypes.func,
+  plants: PropTypes.array,
 };
+const mapStateToProps = state => ({
+  plants: state.plantProfile,
+});
 
 const mapDispatchToProps = dispatch => ({
   pFetchPlant: () => dispatch(plantActions.fetchPlantRequest()), 
   doCreatePlant: plant => dispatch(plantActions.createPlantRequest(plant)),
 });
 
-export default connect(null, mapDispatchToProps)(Dashboard);
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
 

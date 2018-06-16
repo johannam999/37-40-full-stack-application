@@ -8,6 +8,11 @@ const setPlant = plant => ({ // this is object, async is function
   payload: plant,
 });
 
+const getAllPlants = plants => ({
+  type: 'FETCH_ALL_PLANTS',
+  payload: plants,
+});
+
 
 // async actions we do it with thunk, use functions not objects
 
@@ -43,7 +48,7 @@ const fetchPlantRequest = () => (store) => {
   return superagent.get(`${API_URL}/plants`)
     .set('Authorization', `Bearer ${token}`) 
     .then((response) => {
-      return store.dispatch(setPlant(response.body));
+      return store.dispatch(getAllPlants(response.body));
     });
 };
 export { setPlant, createPlantRequest, updatePlantRequest, fetchPlantRequest };
