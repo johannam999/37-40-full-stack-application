@@ -24,7 +24,7 @@ export default (state = null, action) => {
     case 'TOKEN_REMOVE': 
       return null;
     case 'FETCH_ALL_PLANTS':
-      return [...payload]; 
+      return [payload]; 
     default:
       return state;
   }

@@ -13,7 +13,6 @@ class Dashboard extends React.Component {
     const {
       plants,
     } = this.props;
-    console.log('PLANTS', plants);
     return (
       <div className='dashboard'>
       <h2>Welcome</h2>

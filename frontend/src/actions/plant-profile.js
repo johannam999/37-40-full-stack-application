@@ -24,7 +24,6 @@ const createPlantRequest = plant => (store) => {
     .set('Content-Type', 'application/json') // sending json most of the time
     .send(plant)
     .then((response) => {
-      console.log(response.body);
       return store.dispatch(setPlant(response.body));
       // need to send the change tot he store, might be response.profile or response.value
     });
