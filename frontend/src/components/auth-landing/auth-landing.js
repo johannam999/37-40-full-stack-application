@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 
 import * as authActions from '../../actions/auth';
 
+import * as plantActions from '../../actions/plant-profile';
+
 import autoBind from '../../utils';
 import AuthForm from '../auth-form/auth-form';
 import * as clientProfileActions from '../../actions/client-profile';
