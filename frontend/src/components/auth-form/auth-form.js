@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import autoBind from './../../utils';
 import validator from 'validator';
+import autoBind from './../../utils';
 
 const emptyState = {
   username: '',
@@ -35,9 +35,9 @@ class AuthForm extends React.Component {
         if (value.length < MIN_NAME_LENGTH) {
           return `your name must  be at least ${MIN_NAME_LENGTH} characters long`;
         }
-        return null; // switch statement MUST return value or break
+        return null; 
       case 'email':
-        if (!validator.isEmail(value)) { // if value is valid
+        if (!validator.isEmail(value)) {
           return ' you must provide a valid email';
         }
         return null;
@@ -53,10 +53,10 @@ class AuthForm extends React.Component {
 
   handleChange(event) {
     const { name, value } = event.target;
-    this.setState({ // name gives us username.Dirty, password.Dirty and email.Dirty
+    this.setState({ 
       [name]: value,
       [`${name}Dirty`]: true,
-      [`${name}Error`]: this.handleValidation(name, value), // here we are changing the state and ui state form
+      [`${name}Error`]: this.handleValidation(name, value),
     });
   }
 

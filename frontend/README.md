@@ -33,7 +33,8 @@ This app lets the user input data to create a user account. It has a dashboard w
 13. Add logout route in token.js, header.js and auth.js and routes.js.
 This will give a logout functionality and an option to store cookies locally.
 14. Link Header component to app.js.
-13. Change scss file accordingly.
+15. Change scss file accordingly.
+16. Add profile schema and plant schema.
 14. Run: run dbon, npm run start, npm run watch to test the app. The address line must be at least 10 characters long.
 
 

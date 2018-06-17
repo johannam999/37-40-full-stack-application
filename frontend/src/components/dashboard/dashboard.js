@@ -26,7 +26,7 @@ class Dashboard extends React.Component {
             <h3>{plant.placement}</h3>
             {/* <PlantForm 
               plant={plant}
-              onComplete={plantUpdate}
+              onComplete={this.props.doPlantUpdate}
               buttonText='Update plant'/> */}
             {/* <button onClick={() => plantUpdate(plant)}>update</button> */}
             </div>
@@ -40,7 +40,7 @@ class Dashboard extends React.Component {
 }
 Dashboard.propTypes = {
   doCreatePlant: PropTypes.func,
-  plantUpdate: PropTypes.func,
+  doPlantUpdate: PropTypes.func,
   pFetchPlant: PropTypes.func,
   plants: PropTypes.array,
 };
@@ -51,7 +51,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   pFetchPlant: () => dispatch(plantActions.fetchPlantRequest()), 
   doCreatePlant: plant => dispatch(plantActions.createPlantRequest(plant)),
-  plantUpdate: plant => dispatch(plantActions.updateRequest(plant)),
+  doPlantUpdate: plant => dispatch(plantActions.updateRequest(plant)),
   plantDelete: plant => dispatch(plantActions.updateRequest(plant)),
 });
 
