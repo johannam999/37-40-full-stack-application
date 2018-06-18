@@ -17,6 +17,7 @@ p,h1,h2,ul {
 .landing {
   margin-top: 70px;
   padding-left: 20px;
+
 }
 
 a {
@@ -41,12 +42,20 @@ ul{
   padding-left: 0;
   list-style-type: none; 
 }
-
+a .loginLink {
+  margin-left: 50px;
+}
+input {
+  margin-left: 73px;
+}
 button {
   background-color:rgb(223, 149, 202);
   padding: 5px;
   border-radius: 3px;
   margin: $button-margin;
+}
+.logout {
+  margin-left: 97px;
 }
 .error {
   border-color:$error;
